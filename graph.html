@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        <script>
+            var c = document.getElementById("myCV");
+            var context = document.getElementById("myCV");
+            var ctx = c.getContext("2d");
+            var ct = context.getContext("2d");
+            var text = {
+            head:["The number of people entering the library 2010-2016","2010","2011","2012","2013","2014","2015","2016","(จำนวนคน)"],
+            ti:["20","15","25","13","30"]
+            };
+            
+            function xScale(x1,y1,x2,y2){
+                var i;
+                ct.moveTo(x1,y1);
+                ct.lineTo(x2,y2);
+                ct.strokeStyle="#777777";
+                ct.stroke();
+            
+                for(i=50;i<=200; i+=50){
+                    ct.moveTo(x1,y1+i);
+                    ct.lineTo(x2,y2+i);
+                }
+                ct.strokeStyle="#FF9900";
+                ct.stroke();
+            }
+            
+            function yScale(x1,y1,x2,y2){
+                var i;
+                ct.moveTo(x1,y1);
+                ct.lineTo(x2,y2);
+                ct.strokeStyle="#33CC00";
+                ct.stroke();
+            
+                for(i=70;i<=420; i+=70){
+                    ct.moveTo(x1+i,y1);
+                    ct.lineTo(x2+i,y2);
+                }
+                ct.strokeStyle="#33FF00";
+                ct.stroke();
+            }
+            
+            function drawLine(){
+                var i;
+                ctx.moveTo(arguments[0],arguments[1]);
+                
+                for(i=2;i< arguments.length;i+=2){
+                    ctx.lineTo(arguments[i],arguments[i+1]);
+                    ctx.stroke();
+                }
+            }
+            
+            function detail(){
+                var i,x=75,y=55;
+                ctx.font = "25px Cordia New";
+                
+                for(i=0;i<5;i++){
+                    ctx.fillText(text.ti[i],x,y+=50);
+                }
+                ctx.fillText(text.head[0],145,60);
+                ctx.fillText(text.head[1],113,325);
+                ctx.fillText(text.head[2],183,325);
+                ctx.fillText(text.head[3],253,325);
+                ctx.fillText(text.head[4],323,325);
+                ctx.fillText(text.head[5],393,325);
+                ctx.fillText(text.head[6],463,325);
+                ctx.fillText(text.head[7],533,325);
+                ctx.fillText(text.head[8],65,70);
+            }
+            //main
+            
+            detail();
+            drawLine(130,285,195,220,230,220,240,230,350,180,450,200,550,150);
+            xScale(130,100,550,100);
+            yScale(130,300,130,100);
+            
+            </script>
+    </h1>
+</body>
+</html>
